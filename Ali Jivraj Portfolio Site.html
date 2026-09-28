@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Jivraj — Industrial Engineering &amp; Systems</title>
+
+  <!-- Typography: Newsreader (Editorial Serif) + Inter (Clean UI) + JetBrains Mono (Specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #fafafa;
+      background-image: 
+        radial-gradient(at 95% 2%, rgba(16, 185, 129, 0.04) 0px, transparent 55%),
+        radial-gradient(at 5% 38%, rgba(14, 165, 233, 0.025) 0px, transparent 45%),
+        radial-gradient(at 90% 88%, rgba(16, 185, 129, 0.035) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: #171717;
+      font-family: 'Inter', -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-title {
+      font-family: 'Newsreader', Georgia, serif;
+      letter-spacing: -0.015em;
+    }
+
+    /* Zero-glitch tab switching */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: simpleFade 0.15s ease-out;
+    }
+
+    @keyframes simpleFade {
+      from { opacity: 0; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Media placeholder styling */
+    .media-box {
+      background-color: #f5f5f5;
+      border: 1px solid #e5e5e5;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between selection:bg-neutral-200 selection:text-neutral-900">
+
+  <!-- Minimal Header & Underline Navigation -->
+  <header class="border-b border-neutral-200/80 bg-[#fafafa]/80 backdrop-blur-md sticky top-0 z-30">
+    <div class="max-w-3xl mx-auto px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      
+      <div>
+        <a href="#overview" onclick="switchTab('overview')" class="text-base font-semibold tracking-tight text-neutral-900 hover:text-emerald-700 transition">
+          Ali Jivraj
+        </a>
+        <p class="text-xs text-neutral-500 font-mono">Industrial Engineering Co-op &amp; Technical Founder</p>
+      </div>
+
+      <!-- Underline tab navigation -->
+      <nav class="flex items-center gap-5 text-sm pt-1 sm:pt-0">
+        <button onclick="switchTab('overview')" id="nav-overview" class="tab-btn pb-1 font-medium text-neutral-900 border-b-2 border-emerald-600 transition">
+          Overview
+        </button>
+        <button onclick="switchTab('projects')" id="nav-projects" class="tab-btn pb-1 font-medium text-neutral-500 hover:text-neutral-900 border-b-2 border-transparent transition">
+          Projects
+        </button>
+        <button onclick="switchTab('about')" id="nav-about" class="tab-btn pb-1 font-medium text-neutral-500 hover:text-neutral-900 border-b-2 border-transparent transition">
+          About
+        </button>
+        <button onclick="switchTab('experience')" id="nav-experience" class="tab-btn pb-1 font-medium text-neutral-500 hover:text-neutral-900 border-b-2 border-transparent transition">
+          Experience
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-3xl w-full mx-auto px-5 py-10 flex-grow">
+
+    <!-- =========================================================================
+         PAGE 1: OVERVIEW
+         ========================================================================= -->
+    <section id="tab-overview" class="tab-content active space-y-12">
+      
+      <!-- Bio Header + Photo Frame -->
+      <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6 pb-8 border-b border-neutral-200">
+        <div class="space-y-4 max-w-lg">
+          <h1 class="text-3xl sm:text-4xl font-serif-title font-medium text-neutral-900 leading-tight">
+            Designing scalable operational systems and AI-enabled platforms.
+          </h1>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Industrial Engineering student at Toronto Metropolitan University and technical founder. Currently operating <a href="https://tutorshop.ca" target="_blank" class="text-neutral-900 underline decoration-neutral-300 hover:decoration-emerald-600 underline-offset-4 font-medium transition">Tutor Shop</a>, an academic marketplace platform coordinating 20+ STEM tutors and 50+ students through automated scheduling logic and financial reconciliation pipelines.
+          </p>
+          <div class="flex items-center gap-3 text-xs font-mono text-neutral-600 pt-1">
+            <span class="inline-flex items-center gap-1.5 font-medium text-neutral-800">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Open to Engineering Co-op
+            </span>
+            <span>•</span>
+            <span>Vaughan / Greater Toronto Area</span>
+          </div>
+        </div>
+
+        <!-- Headshot Frame -->
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-md overflow-hidden border border-neutral-200 bg-neutral-100 shrink-0 shadow-sm">
+          <img 
+            src="assets/images/ali.jpg" 
+            alt="Ali Jivraj" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex items-center justify-center text-neutral-400 text-xs font-mono text-center p-2">
+            ali.jpg
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary of Qualifications Section -->
+      <div class="space-y-4 pt-2">
+        <div class="border-b border-neutral-200 pb-2">
+          <span class="text-xs font-mono uppercase tracking-wider text-neutral-400">Summary of Qualifications</span>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-network-wired text-emerald-700"></i>
+              Platform Architecture &amp; Workflows
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Experience designing scalable workflows, complex scheduling logic, and AI-enabled software systems from zero to production.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-calculator text-emerald-700"></i>
+              Financial &amp; Operational Precision
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Direct background managing client billing flows, contractor payout reconciliation, and operational risk mitigation with complete accuracy.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-users-gear text-emerald-700"></i>
+              Stakeholder &amp; Project Management
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Coordinated onboarding, delivery standards, and service consistency for 50+ clients and 20+ independent technical contractors.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-chart-line text-emerald-700"></i>
+              Data-Driven Systems &amp; Ergonomics
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Proficient in biomechanical data synthesis, capital ROI modeling, rule-based algorithmic trading logic, and SolidWorks CAD modeling.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Startup: Tutor Shop -->
+      <div class="space-y-4">
+        <div class="flex items-baseline justify-between">
+          <span class="text-xs font-mono uppercase tracking-wider text-neutral-500">
+            Featured Platform &amp; Startup
+          </span>
+          <a href="https://tutorshop.ca" target="_blank" class="text-xs text-neutral-600 hover:text-emerald-700 font-medium flex items-center gap-1 transition">
+            Visit tutorshop.ca <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Startup Screenshot Slot -->
+        <div class="media-box rounded-md overflow-hidden group">
+          <img 
+            src="assets/images/tutorshop-preview.webp" 
+            alt="Tutor Shop Platform Preview" 
+            class="w-full aspect-[16/9] object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full aspect-[16/9] flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-image text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">Tutor Shop Marketplace Preview</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/tutorshop-preview.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-1">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Tutor Shop</h2>
+            <span class="text-xs font-mono text-neutral-500">React • Supabase • Claude Opus • Lovable</span>
+          </div>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            A comprehensive multi-tenant marketplace platform iterated across 3 phases (Carrd &rarr; Softr/Airtable &rarr; React/Supabase). Features custom organization management portals with private booking engines and integrated payment systems, daily interactive word games for user retention, and automated scheduling and billing across 20+ verified tutors and 50+ students.
+          </p>
+          <div class="pt-1">
+            <button onclick="switchTab('projects')" class="text-xs text-emerald-700 hover:text-emerald-800 font-medium inline-flex items-center gap-1 transition">
+              Read the 3-phase architectural evolution &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Snapshot: Recent Engineering & Software Work -->
+      <div class="space-y-4 pt-2">
+        <div class="flex items-baseline justify-between border-b border-neutral-200 pb-2">
+          <span class="text-xs font-mono uppercase tracking-wider text-neutral-400">Selected Engineering &amp; Side Projects</span>
+          <button onclick="switchTab('projects')" class="text-xs text-neutral-600 hover:text-emerald-700 font-medium transition">
+            View all with media &rarr;
+          </button>
+        </div>
+
+        <div class="divide-y divide-neutral-200">
+          
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Yawm — Daily Planner &amp; Calendar Engine</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Live</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">Personal side project synchronizing task time-blocking with Google Calendar, automated prayer times, and daily digest emails.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Personal Side Project</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">The Neurowave — Health Publishing &amp; Affiliate Platform</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Client</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">Custom web platform engineered for a client, featuring live CMS drafting, CASL subscriber workflows, and an affiliate engine.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Client Platform</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">CodeBlox Design Web App</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Live</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">Personal side project building an AI-native design-to-code workspace with synchronized canvas and custom parser rendering HTML/CSS with 100% fidelity.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Personal Side Project</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">The Neurowave — Health Publishing &amp; Affiliate Platform</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Live</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">Non-toxic living and wellness platform featuring custom CMS article drafting, CASL subscriber pipelines, and an affiliate engine.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Editorial Platform / CMS</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">CodeBlox Design Web App</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Live</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">AI-native design-to-code workspace with synchronized canvas and custom parser rendering HTML/CSS with 100% fidelity.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Web App / Frontend</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Algorithmic Multi-Timeframe Market Indicator</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Pine Script quantitative engine combining 3-min MACD with 15-min RSI filters; improved signal reliability by 80%.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Pine Script / Systems Logic</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Ergonomic System Redesign (Jiyan Painting Inc.)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Biomechanical analysis demonstrating 41% spinal compression decrease, 66% joint shear reduction, and capital ROI model.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Ergonomics / ROI Modeling</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Natural Disaster Stretcher Redesign</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">3-stage iterative engineering design process and SolidWorks 3D CAD model for rugged wilderness evacuations.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">SolidWorks / 3D CAD</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================================
+         PAGE 2: PROJECTS
+         ========================================================================= -->
+    <section id="tab-projects" class="tab-content space-y-12">
+      
+      <div>
+        <h1 class="text-2xl font-serif-title font-medium text-neutral-900">Engineering &amp; Software Projects</h1>
+        <p class="text-sm text-neutral-500 mt-1">Startup platform architecture, personal side projects, client web platforms, and engineering systems.</p>
+      </div>
+
+      <!-- Project 1: Tutor Shop Deep Dive (3-Phase Evolution) -->
+      <article class="space-y-5 pb-12 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">Tutor Shop</h2>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">3-Stage Evolution</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Production Marketplace • Founder &amp; Platform Architect</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://tutorshop.ca" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              Live: tutorshop.ca <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Video Player / Media Slot -->
+        <div class="media-box rounded-md overflow-hidden aspect-video relative bg-neutral-900">
+          <video 
+            controls 
+            playsinline 
+            preload="metadata"
+            poster="assets/images/tutorshop-preview.webp"
+            class="w-full h-full object-cover"
+          >
+            <source src="assets/videos/tutorshop-demo.mp4" type="video/mp4">
+            <div class="w-full h-full flex flex-col items-center justify-center text-white/70 p-6 text-center space-y-2">
+              <i class="fa-solid fa-play text-2xl text-neutral-300"></i>
+              <p class="text-xs">Place your walkthrough video at <code class="text-neutral-300 font-mono">assets/videos/tutorshop-demo.mp4</code></p>
+            </div>
+          </video>
+        </div>
+
+        <div class="space-y-3 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Founded and engineered Tutor Shop to solve scheduling bottlenecks, lack of accountability, and manual payment friction in private STEM tutoring. To maintain engineering discipline and mitigate capital risk, the platform was developed across three deliberate architectural phases:
+          </p>
+
+          <!-- 3-Phase Evolution Breakdown -->
+          <div class="space-y-3 pt-2">
+            
+            <!-- Phase 1 -->
+            <div class="border border-neutral-200 rounded-md p-3.5 bg-white space-y-1.5">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <span class="text-xs font-mono font-medium text-neutral-900">Phase 0: Demand Validation &amp; Concept</span>
+                <span class="text-[11px] font-mono text-neutral-400">Carrd.co</span>
+              </div>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Deployed zero-cost responsive landing pages to validate consumer willingness to pay before writing production code. Structured independent tutor profiles with direct booking CTAs and manual inquiry pipelines.
+              </p>
+              <div class="flex items-center gap-3 pt-1 text-[11px] font-mono">
+                <a href="https://thetutorshop.carrd.co/" target="_blank" class="text-neutral-500 hover:text-emerald-700 underline underline-offset-2 transition">
+                  Archive: thetutorshop.carrd.co &nearr;
+                </a>
+                <span class="text-neutral-300">•</span>
+                <a href="https://thetutorshop-tutors.carrd.co/" target="_blank" class="text-neutral-500 hover:text-emerald-700 underline underline-offset-2 transition">
+                  Tutor Directory &nearr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="border border-neutral-200 rounded-md p-3.5 bg-white space-y-1.5">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <span class="text-xs font-mono font-medium text-neutral-900">Phase 1: Database-Driven MVP &amp; Brand Identity</span>
+                <span class="text-[11px] font-mono text-neutral-400">Softr.ai • Google Sheets &rarr; Airtable</span>
+              </div>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Established the brand identity (teal green &amp; white palette, official logo) and engineered an interactive self-serve marketplace. Connected dynamic front-end filtering through Google Sheets and transitioned into an Airtable relational database to manage tutor rosters, hourly rates, and subject tags.
+              </p>
+              <div class="pt-1 text-[11px] font-mono">
+                <a href="https://thetutorshop.softr.app/" target="_blank" class="text-neutral-500 hover:text-emerald-700 underline underline-offset-2 transition">
+                  Archive: thetutorshop.softr.app &nearr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="border border-neutral-200 rounded-md p-3.5 bg-white space-y-1.5">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <span class="text-xs font-mono font-medium text-neutral-900">Phase 2: Full-Stack Production Architecture &amp; Enterprise Systems (Current)</span>
+                <span class="text-[11px] font-mono text-emerald-700">React • Supabase • Claude Opus • Lovable</span>
+              </div>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Re-engineered the platform into a custom full-stack React web application backed by Supabase for relational data storage, authentication, and session records. Leveraged rapid AI-assisted development (Claude Opus via Lovable) and utilized Google Stitch AI and Gemini for user experience brainstorming, component layout schemas, and iterative concept design.
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600 pt-1">
+                <li><strong>Multi-Tenant Organization Management CMS:</strong> Architected a dedicated enterprise subsystem that allows educational institutions, schools, and tutoring agencies to spin up their own isolated mini-platform within Tutor Shop. Features a private administrative dashboard, roster controls, custom branding, and a dedicated booking page with embedded automated payment routing.</li>
+                <li><strong>Daily Word Games &amp; Engagement Engine:</strong> Engineered custom daily word puzzle challenges directly into the web application to drive continuous organic traffic, gamify educational problem-solving, and cultivate consistent daily active user (DAU) retention.</li>
+                <li><strong>Core Operations &amp; Billing:</strong> Architected automated scheduling logic and session-tracking systems serving 50+ students with 20+ verified tutors, managing client billing, contractor payouts, and dispute resolution workflows to guarantee fiscal accuracy.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Yawm Daily Planner -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">Yawm — Daily Planner &amp; Schedule Sync</h2>
+              <span class="text-[10px] font-mono text-neutral-600 bg-neutral-100 px-1.5 py-0.5 rounded border border-neutral-200">Personal Project</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Side Project • Google Calendar API • Automated Pipelines</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://yawm.lovable.app" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              yawm.lovable.app <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-yawm.webp" 
+            alt="Yawm Daily Planner Screenshot" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-calendar-check text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">Yawm Web App Preview</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-yawm.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Built as a personal side project for intentional daily planning, designed to streamline daily productivity by synchronizing time-blocking directly with calendar workflows and routine markers.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Built two-way task allocation that publishes scheduled commitments directly to Google Calendar, triggering real-time notifications and reminders.</li>
+            <li>Embedded dynamic prayer time integration, automatically calculating and aligning daily scheduling blocks around geographic prayer schedules.</li>
+            <li>Engineered an automated morning email digest service that synthesizes the user's daily itinerary and priority tasks into a crisp briefing delivered at the start of each day.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 3: The Neurowave Health -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">The Neurowave</h2>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Client Project</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Client Build • Digital Health Publication &amp; Affiliate Engine • Custom CMS</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://theneurowavehealth.com" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              theneurowavehealth.com <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-neurowave.webp" 
+            alt="The Neurowave Platform Screenshot" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-newspaper text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">The Neurowave Health Preview</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-neurowave.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Architected and developed as a client project, <strong class="text-neutral-800 font-medium">The Neurowave</strong> is an editorial wellness publication and consumer guidance platform focused on non-toxic living, environmental toxins (PFAS/PFOA), and cognitive health optimization.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Engineered a custom content management system supporting live canvas article drafting, estimated read times, and editorial publishing pipelines.</li>
+            <li>Built an affiliate commerce engine ("Non-Toxic Swaps") enabling product recommendations to be dynamically linked and cross-referenced inside corresponding research articles.</li>
+            <li>Implemented a newsletter distribution system alongside a CASL-compliant subscriber management pipeline for automated reader updates.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 4: CodeBlox Design Web App -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">CodeBlox Design Web App</h2>
+              <span class="text-[10px] font-mono text-neutral-600 bg-neutral-100 px-1.5 py-0.5 rounded border border-neutral-200">Personal Project</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Side Project • AI-Native Design-to-Code Platform • Supabase • Custom Parser</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://codebloxdesign.lovable.app/" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              codebloxdesign.lovable.app <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+            <span class="text-neutral-300">•</span>
+            <span class="text-xs font-mono text-neutral-400">Jan 2026 — Present</span>
+          </div>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-codeblox.webp" 
+            alt="CodeBlox Web App Screenshot" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-image text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">CodeBlox Interface Screenshot</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-codeblox.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Engineered an AI-native design-to-code platform that automates the generation of production-ready HTML/CSS from digital media layouts using Supabase and AI-assisted development environments.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Architected a synchronized dual-pane workspace featuring an interactive live editor alongside a real-time visual canvas.</li>
+            <li>Built a custom parser to ensure 100% fidelity between visual UI elements and generated frontend code, accelerating digital media layout workflows.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 5: Algorithmic Multi-Timeframe Market Indicator -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Multi-Timeframe Market Indicator</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Quantitative Systems Logic • Pine Script • Technical Trading</p>
+          </div>
+          <span class="text-xs font-mono text-neutral-400">May 2025 — Jun 2025</span>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-indicator.webp" 
+            alt="Market Indicator Chart" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-solid fa-chart-line text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">TradingView Indicator Visualization</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-indicator.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            An algorithmic indicator combining multi-timeframe momentum and trend data to filter out market noise and identify high-probability setups.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Synthesized 3-minute MACD momentum signals with 15-minute RSI trend filters to categorize trade setups into four distinct reversal and continuation classifications, boosting signal reliability by 80%.</li>
+            <li>Implemented a dynamic price-structure engine using pivot-point lookback logic and a percentage-based minGap filter to autonomously map major horizontal support and resistance levels without chart noise.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 7: Ergonomic System Redesign -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Ergonomic System &amp; Workstation Redesign</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Client: Jiyan Painting Inc. • Industrial Engineering</p>
+          </div>
+          <span class="text-xs font-mono text-neutral-400">Jan 2026 — Apr 2026</span>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Conducted a comprehensive ergonomic investigation and financial analysis to justify capital expenditures for workstation innovations in commercial painting operations.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Synthesized biomechanical stress data and worker feedback into technical reports proposing a 41% reduction in spinal compression and a 66% decrease in joint shear.</li>
+            <li>Formulated a capital expenditure ROI model comparing upfront equipment costs against operational returns, worker fatigue mitigation, and reduced rework rates.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 8: Disaster Stretcher CAD -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Natural Disaster All-Terrain Stretcher</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Iterative Mechanical Design &amp; CAD</p>
+          </div>
+          <span class="text-xs font-mono text-neutral-400">Sep 2024 — Dec 2024</span>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Redesigned field evacuation stretchers for moving incapacitated individuals across harsh wilderness terrain and collapsed urban infrastructure.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Executed a 3-stage iterative engineering design process assessing mechanical load distributions, structural ergonomics, and modular packability.</li>
+            <li>Built the complete 3D assembly model and part documentation in SolidWorks CAD.</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- =========================================================================
+         PAGE 3: ABOUT / BIO
+         ========================================================================= -->
+    <section id="tab-about" class="tab-content space-y-8">
+      
+      <div>
+        <h1 class="text-2xl font-serif-title font-medium text-neutral-900">About Me</h1>
+        <p class="text-sm text-neutral-500 mt-1">Background, philosophy, and engineering toolkit.</p>
+      </div>
+
+      <!-- Photo & Story -->
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <div class="w-32 h-40 rounded-md overflow-hidden border border-neutral-200 bg-neutral-100 shrink-0 shadow-sm">
+          <img 
+            src="assets/images/ali.jpg" 
+            alt="Ali Jivraj Portrait" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-3 text-center">
+            <i class="fa-regular fa-user text-xl mb-1"></i>
+            <span class="text-[10px] font-mono">ali.jpg</span>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm text-neutral-700 leading-relaxed">
+          <p>
+            I am an Industrial Engineering student in the Co-op Program at Toronto Metropolitan University (Class of 2028). My work combines systems optimization, data-driven modeling, and platform engineering to streamline complex operational bottlenecks.
+          </p>
+          <p>
+            As the founder of Tutor Shop, alongside building personal side web apps like Yawm and CodeBlox, and developing client platforms like The Neurowave, I operate at the intersection of product architecture, operational workflows, and automation. I focus on engineering solutions that eliminate friction for real users, whether automating a contractor payout pipeline or streamlining daily calendar commitments.
+          </p>
+          <p>
+            Outside of engineering and entrepreneurship, I chair community youth initiatives at ISIJ of Toronto and have spent years coaching youth soccer clubs across the GTA.
+          </p>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="pt-4 border-t border-neutral-200 space-y-4">
+        <h2 class="text-base font-semibold text-neutral-900">Academic Background</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="border border-neutral-200 rounded-md p-4 bg-white space-y-1">
+            <span class="text-neutral-500 font-mono uppercase text-[10px] tracking-wide">University &amp; Degree</span>
+            <p class="font-medium text-neutral-900 text-sm">Toronto Metropolitan University</p>
+            <p class="text-neutral-600">Bachelor of Engineering (BEng), Industrial Engineering Co-op</p>
+            <p class="text-neutral-400 font-mono pt-1">Sep 2023 - Apr 2028</p>
+          </div>
+          <div class="border border-neutral-200 rounded-md p-4 bg-white space-y-1">
+            <span class="text-neutral-500 font-mono uppercase text-[10px] tracking-wide">Core Disciplines</span>
+            <p class="text-neutral-600 leading-relaxed">
+              Operations Research, Workflow Optimization, Biomechanical Ergonomics, Quality Control, Data Analysis, and Systems Architecture.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Skills Structured by Domain -->
+      <div class="pt-4 border-t border-neutral-200 space-y-3">
+        <h2 class="text-base font-semibold text-neutral-900">Technical Toolkit</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-white border border-neutral-200 rounded-md">
+            <span class="font-mono text-neutral-800 block mb-1 text-[11px] font-medium">AI &amp; Systems Architecture</span>
+            <p class="text-neutral-600 leading-relaxed">Prompt Engineering, Lovable, Claude Opus, Gemini, Google Stitch AI, Supabase, Airtable, Softr, Google Calendar API</p>
+          </div>
+          <div class="p-3 bg-white border border-neutral-200 rounded-md">
+            <span class="font-mono text-neutral-800 block mb-1 text-[11px] font-medium">Programming &amp; Data</span>
+            <p class="text-neutral-600 leading-relaxed">Python (Data Analysis), SQL, MATLAB, C, Pine Script, React (Frontend), GNU Plot</p>
+          </div>
+          <div class="p-3 bg-white border border-neutral-200 rounded-md">
+            <span class="font-mono text-neutral-800 block mb-1 text-[11px] font-medium">Design &amp; Project Tools</span>
+            <p class="text-neutral-600 leading-relaxed">SolidWorks (3D CAD), Biomechanical Ergonomics, Notion, Microsoft Office, Photoshop, Canva</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================================
+         PAGE 4: EXPERIENCE & LEADERSHIP
+         ========================================================================= -->
+    <section id="tab-experience" class="tab-content space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-serif-title font-medium text-neutral-900">Experience &amp; Leadership</h1>
+          <p class="text-sm text-neutral-500 mt-1">Startup operations, systems engineering, and community leadership.</p>
+        </div>
+        <a 
+          href="assets/docs/Ali_Jivraj_Resume.pdf" 
+          download="Ali_Jivraj_Resume.pdf" 
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-neutral-300 text-xs font-medium text-neutral-800 hover:border-neutral-900 transition self-start sm:self-auto"
+        >
+          <i class="fa-regular fa-file-pdf"></i>
+          Download Resume (PDF)
+        </a>
+      </div>
+
+      <!-- Experience Items -->
+      <div class="space-y-6">
+        
+        <!-- Role 1: Tutor Shop -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">Founder &amp; Platform Architect</h2>
+            <span class="text-xs font-mono text-neutral-500">Jun 2025 — Present</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">Tutor Shop • Vaughan, Ontario</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Directed full product lifecycle across 3 iterative architectures: Carrd &rarr; Softr/Airtable &rarr; custom React &amp; Supabase.</li>
+            <li>Architected an enterprise multi-tenant organization CMS enabling third-party academic groups to launch private booking hubs with automated billing pipelines.</li>
+            <li>Built custom interactive daily word puzzle games into the platform, gamifying the student experience and strengthening daily active user engagement.</li>
+            <li>Scaled marketplace operations to 20+ independent STEM tutors and 50+ students with 100% compliance with service standards.</li>
+            <li>Architected and deployed scheduling logic, session-tracking protocols, automated client billing, and contractor payout reconciliation to guarantee fiscal precision.</li>
+            <li>Identified operational risks including scheduling conflicts and service inconsistencies, implementing structured process adjustments to maintain delivery reliability.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2: ISIJ of Toronto -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">Youth Committee Chair</h2>
+            <span class="text-xs font-mono text-neutral-500">May 2022 — Present</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">ISIJ of Toronto • Vaughan, Ontario</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Direct year-round operational logistics, schedules, and budgets for large-scale youth initiatives including career fairs, ski trips, and educational seminars.</li>
+            <li>Lead and coordinate a collaborative team of 10+ organizers, overseeing event timelines, risk management, and vendor negotiations.</li>
+            <li>Spearheaded end-to-end design, supplier budgeting, and distribution of 4 branded apparel collections.</li>
+          </ul>
+        </div>
+
+        <!-- Role 3: STEM Tutor -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">STEM Tutor</h2>
+            <span class="text-xs font-mono text-neutral-500">Sep 2023 — Present</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">Jivraj Tutoring / TutorShop • Vaughan, Ontario</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Delivered structured STEM instruction to students across multiple grade levels using systematic problem-solving frameworks.</li>
+            <li>Deconstructed complex engineering principles into clear, logical models tailored to individual learning needs, consistently meeting academic milestones.</li>
+            <li>Managed scheduling, session planning, and progress tracking independently across an active client roster.</li>
+          </ul>
+        </div>
+
+        <!-- Role 4: Soccer Coach -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">Youth Soccer Coach</h2>
+            <span class="text-xs font-mono text-neutral-500">Feb 2024 — May 2026</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">IFSOE Academy &amp; Playmaker Academy • Vaughan &amp; Richmond Hill, ON</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Designed and executed structured athlete development plans for cohorts of 20 to 40 youth players aged 9 to 15, tracking individual progress against skill milestones.</li>
+            <li>Led high-tempo technical training sessions and match strategies, fostering teamwork, athletic discipline, and personal accountability through structured performance feedback.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Contact Box -->
+      <div class="bg-neutral-100/70 rounded-md p-5 space-y-2 border border-neutral-200">
+        <h3 class="text-sm font-semibold text-neutral-900">Get in Touch</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">
+          Actively seeking Industrial Engineering Co-op and systems optimization roles. Reach out directly:
+        </p>
+        <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
+          <button onclick="copyEmail()" class="px-3 py-1.5 rounded bg-white border border-neutral-300 hover:border-neutral-900 text-neutral-800 transition flex items-center gap-1.5">
+            <i class="fa-regular fa-copy text-neutral-500"></i>
+            <span id="email-label">aliasgharjivraj@gmail.com</span>
+          </button>
+          <a href="https://www.linkedin.com/in/aliasgharjivraj" target="_blank" class="text-neutral-600 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 transition">
+            LinkedIn &rarr;
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="border-t border-neutral-200/80 bg-transparent py-6">
+    <div class="max-w-3xl mx-auto px-5 flex items-center justify-between text-xs text-neutral-400 font-mono">
+      <span>Ali Jivraj © 2026</span>
+      <span>Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <!-- Simple Tab Switching Script -->
+  <script>
+    const tabs = ['overview', 'projects', 'about', 'experience'];
+
+    function switchTab(tabId) {
+      if (!tabs.includes(tabId)) tabId = 'overview';
+
+      tabs.forEach(t => {
+        const content = document.getElementById(`tab-${t}`);
+        const btn = document.getElementById(`nav-${t}`);
+
+        if (t === tabId) {
+          content.classList.add('active');
+          btn.classList.add('text-neutral-900', 'border-emerald-600');
+          btn.classList.remove('text-neutral-500', 'border-transparent');
+        } else {
+          content.classList.remove('active');
+          btn.classList.remove('text-neutral-900', 'border-emerald-600');
+          btn.classList.add('text-neutral-500', 'border-transparent');
+        }
+      });
+
+      if (history.pushState) {
+        history.pushState(null, null, '#' + tabId);
+      } else {
+        window.location.hash = tabId;
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (tabs.includes(hash)) switchTab(hash);
+    });
+
+    // Handle initial page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (tabs.includes(hash)) switchTab(hash);
+    });
+
+    // One-click email copy
+    function copyEmail() {
+      const email = 'aliasgharjivraj@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const label = document.getElementById('email-label');
+        const original = label.innerText;
+        label.innerText = 'Copied to clipboard!';
+        setTimeout(() => {
+          label.innerText = original;
+        }, 1800);
+      });
+    }
+  </script>
+
+</body>
+</html>
