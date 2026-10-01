@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Jivraj — Industrial Engineering &amp; Systems</title>
+
+  <!-- Typography: Newsreader (Editorial Serif) + Inter (Clean UI) + JetBrains Mono (Specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #fafafa;
+      background-image: 
+        radial-gradient(at 95% 2%, rgba(16, 185, 129, 0.04) 0px, transparent 55%),
+        radial-gradient(at 5% 38%, rgba(14, 165, 233, 0.025) 0px, transparent 45%),
+        radial-gradient(at 90% 88%, rgba(16, 185, 129, 0.035) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: #171717;
+      font-family: 'Inter', -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-title {
+      font-family: 'Newsreader', Georgia, serif;
+      letter-spacing: -0.015em;
+    }
+
+    /* Zero-glitch tab switching */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: simpleFade 0.15s ease-out;
+    }
+
+    @keyframes simpleFade {
+      from { opacity: 0; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Media placeholder styling */
+    .media-box {
+      background-color: #f5f5f5;
+      border: 1px solid #e5e5e5;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between selection:bg-neutral-200 selection:text-neutral-900">
+
+  <!-- Minimal Header & Underline Navigation -->
+  <header class="border-b border-neutral-200/80 bg-[#fafafa]/80 backdrop-blur-md sticky top-0 z-30">
+    <div class="max-w-3xl mx-auto px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      
+      <div>
+        <a href="#overview" onclick="switchTab('overview')" class="text-base font-semibold tracking-tight text-neutral-900 hover:text-emerald-700 transition">
+          Ali Jivraj
+        </a>
+        <p class="text-xs text-neutral-500 font-mono">Industrial Engineering Co-op Student &amp; Founder</p>
+      </div>
+
+      <!-- Underline tab navigation -->
+      <nav class="flex items-center gap-5 text-sm pt-1 sm:pt-0">
+        <button onclick="switchTab('overview')" id="nav-overview" class="tab-btn pb-1 font-medium text-neutral-900 border-b-2 border-emerald-600 transition">
+          Overview
+        </button>
+        <button onclick="switchTab('projects')" id="nav-projects" class="tab-btn pb-1 font-medium text-neutral-500 hover:text-neutral-900 border-b-2 border-transparent transition">
+          Projects
+        </button>
+        <button onclick="switchTab('about')" id="nav-about" class="tab-btn pb-1 font-medium text-neutral-500 hover:text-neutral-900 border-b-2 border-transparent transition">
+          About
+        </button>
+        <button onclick="switchTab('experience')" id="nav-experience" class="tab-btn pb-1 font-medium text-neutral-500 hover:text-neutral-900 border-b-2 border-transparent transition">
+          Experience
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-3xl w-full mx-auto px-5 py-10 flex-grow">
+
+    <!-- =========================================================================
+         PAGE 1: OVERVIEW
+         ========================================================================= -->
+    <section id="tab-overview" class="tab-content active space-y-12">
+      
+      <!-- Bio Header + Photo Frame -->
+      <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6 pb-8 border-b border-neutral-200">
+        <div class="space-y-4 max-w-lg">
+          <h1 class="text-3xl sm:text-4xl font-serif-title font-medium text-neutral-900 leading-tight">
+            Building web apps and systems that make messy processes easier.
+          </h1>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Industrial Engineering student at Toronto Metropolitan University and founder of <a href="https://tutorshop.ca" target="_blank" class="text-neutral-900 underline decoration-neutral-300 hover:decoration-emerald-600 underline-offset-4 font-medium transition">Tutor Shop</a>, a platform that connects 20+ STEM tutors with 50+ students and handles their scheduling and payments automatically.
+          </p>
+          <div class="flex items-center gap-3 text-xs font-mono text-neutral-600 pt-1">
+            <span class="inline-flex items-center gap-1.5 font-medium text-neutral-800">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Open to Engineering Co-op
+            </span>
+            <span>•</span>
+            <span>Vaughan / Greater Toronto Area</span>
+          </div>
+        </div>
+
+        <!-- Headshot Frame -->
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-md overflow-hidden border border-neutral-200 bg-neutral-100 shrink-0 shadow-sm">
+          <img 
+            src="assets/images/ali.jpg" 
+            alt="Ali Jivraj" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex items-center justify-center text-neutral-400 text-xs font-mono text-center p-2">
+            ali.jpg
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary of Qualifications Section -->
+      <div class="space-y-4 pt-2">
+        <div class="border-b border-neutral-200 pb-2">
+          <span class="text-xs font-mono uppercase tracking-wider text-neutral-400">Summary of Qualifications</span>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-network-wired text-emerald-700"></i>
+              Building Software &amp; Workflows
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Built scheduling systems, workflows, and AI-assisted web apps from scratch and launched them to real users.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-calculator text-emerald-700"></i>
+              Billing &amp; Payments
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Handles client billing and tutor payouts, and makes sure the numbers add up.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-users-gear text-emerald-700"></i>
+              Managing People &amp; Projects
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Onboards and supports 50+ clients and 20+ independent tutors, and keeps the service consistent.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white border border-neutral-200 rounded-md space-y-1">
+            <div class="flex items-center gap-2 font-mono text-neutral-900 font-medium text-[11px]">
+              <i class="fa-solid fa-chart-line text-emerald-700"></i>
+              Data, Ergonomics &amp; CAD
+            </div>
+            <p class="text-neutral-600 leading-relaxed">
+              Experience in ergonomic analysis, payback modeling, rule-based trading code, and 3D modeling in SolidWorks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Startup: Tutor Shop -->
+      <div class="space-y-4">
+        <div class="flex items-baseline justify-between">
+          <span class="text-xs font-mono uppercase tracking-wider text-neutral-500">
+            Featured Project
+          </span>
+          <a href="https://tutorshop.ca" target="_blank" class="text-xs text-neutral-600 hover:text-emerald-700 font-medium flex items-center gap-1 transition">
+            Visit tutorshop.ca <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Startup Screenshot Slot -->
+        <div class="media-box rounded-md overflow-hidden group">
+          <img 
+            src="assets/images/tutorshop-preview.webp" 
+            alt="Tutor Shop Platform Preview" 
+            class="w-full aspect-[16/9] object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full aspect-[16/9] flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-image text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">Tutor Shop Marketplace Preview</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/tutorshop-preview.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-1">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Tutor Shop</h2>
+            <span class="text-xs font-mono text-neutral-500">React • Supabase • Claude Opus • Lovable</span>
+          </div>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            A tutoring marketplace that went through 3 versions (Carrd &rarr; Softr/Airtable &rarr; React/Supabase). Organizations get their own booking page with payments built in, daily word games bring students back, and scheduling and billing run automatically for 20+ tutors and 50+ students.
+          </p>
+          <div class="pt-1">
+            <button onclick="switchTab('projects')" class="text-xs text-emerald-700 hover:text-emerald-800 font-medium inline-flex items-center gap-1 transition">
+              See how it grew across 3 versions &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Snapshot: Recent Engineering & Software Work -->
+      <div class="space-y-4 pt-2">
+        <div class="flex items-baseline justify-between border-b border-neutral-200 pb-2">
+          <span class="text-xs font-mono uppercase tracking-wider text-neutral-400">Selected Projects</span>
+          <button onclick="switchTab('projects')" class="text-xs text-neutral-600 hover:text-emerald-700 font-medium transition">
+            View all projects &rarr;
+          </button>
+        </div>
+
+        <div class="divide-y divide-neutral-200">
+          
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Yawm — Daily Planner</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Live</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">A daily planner that puts your tasks on Google Calendar, plans around prayer times, and emails you a morning summary.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Personal Side Project</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">The Neurowave — Health Blog &amp; Affiliate Site</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Client</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">A site built for a client, with a custom article editor, a CASL-compliant email signup, and affiliate product links.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Client Platform</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">CodeBlox Design Web App</h3>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Live</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-0.5">A side project: a Canva-style poster maker that runs on code. Paste in HTML, React, or CSS, keep editing it visually, and export it as an image.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Personal Side Project</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Multi-Timeframe Market Indicator</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">A Pine Script trading indicator that combines 3-minute MACD with a 15-minute RSI filter. Made signals about 80% more reliable.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Pine Script / Systems Logic</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Ergonomic Workstation Redesign (Jiyan Painting Inc.)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Ergonomic study for a painting company. The redesign cuts spinal compression by 41% and joint shear by 66%, with a payback model for the equipment.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">Ergonomics / ROI Modeling</span>
+          </div>
+
+          <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-neutral-100/60 px-2 -mx-2 rounded transition cursor-pointer" onclick="switchTab('projects')">
+            <div>
+              <h3 class="text-sm font-medium text-neutral-900 group-hover:text-emerald-700 transition">Natural Disaster Stretcher Redesign</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">A stretcher redesigned for rough terrain, built over 3 design rounds and modeled in SolidWorks.</p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 shrink-0">SolidWorks / 3D CAD</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================================
+         PAGE 2: PROJECTS
+         ========================================================================= -->
+    <section id="tab-projects" class="tab-content space-y-12">
+      
+      <div>
+        <h1 class="text-2xl font-serif-title font-medium text-neutral-900">Engineering &amp; Software Projects</h1>
+        <p class="text-sm text-neutral-500 mt-1">Startup, side projects, client work, and engineering projects.</p>
+      </div>
+
+      <!-- Project 1: Tutor Shop Deep Dive (3-Phase Evolution) -->
+      <article class="space-y-5 pb-12 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">Tutor Shop</h2>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">3 Versions</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Live Marketplace • Founder &amp; Developer</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://tutorshop.ca" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              Live: tutorshop.ca <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Video Player / Media Slot -->
+        <div class="media-box rounded-md overflow-hidden aspect-video relative bg-neutral-900">
+          <video 
+            controls 
+            playsinline 
+            preload="metadata"
+            poster="assets/images/tutorshop-preview.webp"
+            class="w-full h-full object-cover"
+          >
+            <source src="assets/videos/tutorshop-demo.mp4" type="video/mp4">
+            <div class="w-full h-full flex flex-col items-center justify-center text-white/70 p-6 text-center space-y-2">
+              <i class="fa-solid fa-play text-2xl text-neutral-300"></i>
+              <p class="text-xs">Place your walkthrough video at <code class="text-neutral-300 font-mono">assets/videos/tutorshop-demo.mp4</code></p>
+            </div>
+          </video>
+        </div>
+
+        <div class="space-y-3 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Tutor Shop started because private STEM tutoring was a hassle: scheduling was messy, nobody was accountable, and payments were manual. It was built in three stages to avoid spending money on something people didn't want:
+          </p>
+
+          <!-- 3-Phase Evolution Breakdown -->
+          <div class="space-y-3 pt-2">
+            
+            <!-- Phase 1 -->
+            <div class="border border-neutral-200 rounded-md p-3.5 bg-white space-y-1.5">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <span class="text-xs font-mono font-medium text-neutral-900">Phase 0: Testing Demand</span>
+                <span class="text-[11px] font-mono text-neutral-400">Carrd.co</span>
+              </div>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Put up free landing pages to see if people would pay before building anything. Each tutor had a profile with a booking button, and requests were handled by hand.
+              </p>
+              <div class="flex items-center gap-3 pt-1 text-[11px] font-mono">
+                <a href="https://thetutorshop.carrd.co/" target="_blank" class="text-neutral-500 hover:text-emerald-700 underline underline-offset-2 transition">
+                  Archive: thetutorshop.carrd.co &nearr;
+                </a>
+                <span class="text-neutral-300">•</span>
+                <a href="https://thetutorshop-tutors.carrd.co/" target="_blank" class="text-neutral-500 hover:text-emerald-700 underline underline-offset-2 transition">
+                  Tutor Directory &nearr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="border border-neutral-200 rounded-md p-3.5 bg-white space-y-1.5">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <span class="text-xs font-mono font-medium text-neutral-900">Phase 1: First Working Version &amp; Branding</span>
+                <span class="text-[11px] font-mono text-neutral-400">Softr.ai • Google Sheets &rarr; Airtable</span>
+              </div>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Created the brand (teal and white, logo) and built a marketplace where students could browse and filter tutors on their own. Started on Google Sheets, then moved to Airtable to track tutors, hourly rates, and subjects.
+              </p>
+              <div class="pt-1 text-[11px] font-mono">
+                <a href="https://thetutorshop.softr.app/" target="_blank" class="text-neutral-500 hover:text-emerald-700 underline underline-offset-2 transition">
+                  Archive: thetutorshop.softr.app &nearr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="border border-neutral-200 rounded-md p-3.5 bg-white space-y-1.5">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <span class="text-xs font-mono font-medium text-neutral-900">Phase 2: Custom-Built Platform (Current)</span>
+                <span class="text-[11px] font-mono text-emerald-700">React • Supabase • Claude Opus • Lovable</span>
+              </div>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Rebuilt the platform as a React web app, with Supabase handling the database, logins, and session records. Built with AI tools (Claude Opus through Lovable), with Google Stitch and Gemini used to brainstorm the design and layouts.
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600 pt-1">
+                <li><strong>Organization Accounts:</strong> Schools and tutoring agencies can set up their own mini-site inside Tutor Shop. Each gets an admin dashboard, roster controls, custom branding, and its own booking page with payments built in.</li>
+                <li><strong>Daily Word Games:</strong> Added daily word puzzles to give students a reason to come back every day and make learning more fun.</li>
+                <li><strong>Scheduling &amp; Billing:</strong> Built the scheduling and session tracking for 50+ students and 20+ verified tutors. It also handles client billing, tutor payouts, and payment disputes, so the numbers stay accurate.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Yawm Daily Planner -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">Yawm — Daily Planner</h2>
+              <span class="text-[10px] font-mono text-neutral-600 bg-neutral-100 px-1.5 py-0.5 rounded border border-neutral-200">Personal Project</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Side Project • Google Calendar API • Email Digest</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://yawm.lovable.app" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              yawm.lovable.app <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-yawm.webp" 
+            alt="Yawm Daily Planner Screenshot" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-calendar-check text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">Yawm Web App Preview</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-yawm.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            A side project for planning the day on purpose. Users block out time for tasks, and it ties them straight into their calendar and daily routine.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Scheduled tasks are added to Google Calendar, so notifications and reminders come through automatically.</li>
+            <li>Pulls in daily prayer times for the user's location and plans time blocks around them.</li>
+            <li>Sends a morning email with the day's schedule and top tasks.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 3: The Neurowave Health -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">The Neurowave</h2>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">Client Project</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Client Project • Health Blog • Affiliate Links • Custom Editor</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://theneurowavehealth.com" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              theneurowavehealth.com <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-neurowave.webp" 
+            alt="The Neurowave Platform Screenshot" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-newspaper text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">The Neurowave Health Preview</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-neurowave.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            <strong class="text-neutral-800 font-medium">The Neurowave</strong> is a wellness blog built for a client. It helps readers cut down on toxins (like PFAS/PFOA) and look after their brain health.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Built a custom editor for writing and publishing articles, with live drafting and automatic read times.</li>
+            <li>Built a "Non-Toxic Swaps" feature that links recommended products inside the related articles.</li>
+            <li>Set up a newsletter and a CASL-compliant signup system that emails readers automatically.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 4: CodeBlox Design Web App -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-serif-title font-medium text-neutral-900">CodeBlox Design Web App</h2>
+              <span class="text-[10px] font-mono text-neutral-600 bg-neutral-100 px-1.5 py-0.5 rounded border border-neutral-200">Personal Project</span>
+            </div>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Side Project • Code-to-Poster Design Tool • Supabase • Custom Parser</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-medium">
+            <a href="https://codebloxdesign.lovable.app/" target="_blank" class="text-neutral-700 hover:text-emerald-700 underline underline-offset-4 decoration-neutral-300 hover:decoration-emerald-600 flex items-center gap-1.5 transition">
+              codebloxdesign.lovable.app <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+            <span class="text-neutral-300">•</span>
+            <span class="text-xs font-mono text-neutral-400">Jan 2026 — Present</span>
+          </div>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-codeblox.webp" 
+            alt="CodeBlox Web App Screenshot" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-regular fa-image text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">CodeBlox Interface Screenshot</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-codeblox.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            A Canva-style design tool powered by code. Users paste in HTML, React, or CSS to create posters, keep editing them visually, and export the finished design as an image. Built with Supabase and AI coding tools.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Built a split screen with a code editor on one side and a visual canvas on the other, kept in sync so edits show up right away.</li>
+            <li>Wrote a custom parser that reads the pasted code and draws it on the canvas exactly as written.</li>
+            <li>Added image export so finished posters can be downloaded and shared.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 5: Multi-Timeframe Market Indicator -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Multi-Timeframe Market Indicator</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Pine Script • Technical Trading</p>
+          </div>
+          <span class="text-xs font-mono text-neutral-400">May 2025 — Jun 2025</span>
+        </div>
+
+        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
+          <img 
+            src="assets/images/project-indicator.webp" 
+            alt="Market Indicator Chart" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
+            <i class="fa-solid fa-chart-line text-2xl mb-1 text-neutral-400"></i>
+            <span class="text-xs font-medium text-neutral-600">TradingView Indicator Visualization</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-indicator.webp</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            A trading indicator that combines momentum and trend signals from two timeframes to cut out noise and spot better setups.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Combined 3-minute MACD signals with a 15-minute RSI filter to sort trades into four types of reversals and continuations. This made signals about 80% more reliable.</li>
+            <li>Added automatic support and resistance lines using pivot points and a minimum-gap filter, so the chart stays clean.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 7: Ergonomic System Redesign -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Ergonomic Workstation Redesign</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Client: Jiyan Painting Inc. • Industrial Engineering</p>
+          </div>
+          <span class="text-xs font-mono text-neutral-400">Jan 2026 — Apr 2026</span>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Studied how painters work and ran the numbers to show whether new workstation equipment was worth buying.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Used body-stress data and worker feedback to write reports showing the redesign could cut spinal compression by 41% and joint shear by 66%.</li>
+            <li>Built a payback model comparing the upfront equipment cost against savings from less worker fatigue and less rework.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 8: Disaster Stretcher CAD -->
+      <article class="space-y-4 pb-10 border-b border-neutral-200">
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Natural Disaster All-Terrain Stretcher</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Mechanical Design &amp; CAD</p>
+          </div>
+          <span class="text-xs font-mono text-neutral-400">Sep 2024 — Dec 2024</span>
+        </div>
+
+        <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
+          <p>
+            Redesigned an emergency stretcher for carrying injured people over rough wilderness and through collapsed buildings.
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
+            <li>Went through 3 rounds of design, checking how the load is carried, how comfortable it is to use, and how small it packs down.</li>
+            <li>Built the full 3D model and part drawings in SolidWorks.</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- =========================================================================
+         PAGE 3: ABOUT / BIO
+         ========================================================================= -->
+    <section id="tab-about" class="tab-content space-y-8">
+      
+      <div>
+        <h1 class="text-2xl font-serif-title font-medium text-neutral-900">About Me</h1>
+        <p class="text-sm text-neutral-500 mt-1">Background and tools.</p>
+      </div>
+
+      <!-- Photo & Story -->
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <div class="w-32 h-40 rounded-md overflow-hidden border border-neutral-200 bg-neutral-100 shrink-0 shadow-sm">
+          <img 
+            src="assets/images/ali.jpg" 
+            alt="Ali Jivraj Portrait" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-3 text-center">
+            <i class="fa-regular fa-user text-xl mb-1"></i>
+            <span class="text-[10px] font-mono">ali.jpg</span>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm text-neutral-700 leading-relaxed">
+          <p>
+            I'm an Industrial Engineering co-op student at Toronto Metropolitan University (Class of 2028). I like finding where a process gets stuck and fixing it, using data, models, and software.
+          </p>
+          <p>
+            I founded Tutor Shop, and I also build side projects like Yawm and CodeBlox and client sites like The Neurowave. What ties it together is that I like making things easier for real people, whether that's automating tutor payouts or planning someone's day.
+          </p>
+          <p>
+            Outside of school and work, I chair the Youth Committee at ISIJ of Toronto and have coached youth soccer around the GTA.
+          </p>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="pt-4 border-t border-neutral-200 space-y-4">
+        <h2 class="text-base font-semibold text-neutral-900">Education</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="border border-neutral-200 rounded-md p-4 bg-white space-y-1">
+            <span class="text-neutral-500 font-mono uppercase text-[10px] tracking-wide">University &amp; Degree</span>
+            <p class="font-medium text-neutral-900 text-sm">Toronto Metropolitan University</p>
+            <p class="text-neutral-600">Bachelor of Engineering (BEng), Industrial Engineering Co-op</p>
+            <p class="text-neutral-400 font-mono pt-1">Sep 2023 - Apr 2028</p>
+          </div>
+          <div class="border border-neutral-200 rounded-md p-4 bg-white space-y-1">
+            <span class="text-neutral-500 font-mono uppercase text-[10px] tracking-wide">Areas of Study</span>
+            <p class="text-neutral-600 leading-relaxed">
+              Operations research, workflow improvement, ergonomics, quality control, data analysis, and systems design.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Skills Structured by Domain -->
+      <div class="pt-4 border-t border-neutral-200 space-y-3">
+        <h2 class="text-base font-semibold text-neutral-900">Tools &amp; Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-white border border-neutral-200 rounded-md">
+            <span class="font-mono text-neutral-800 block mb-1 text-[11px] font-medium">AI &amp; Software Tools</span>
+            <p class="text-neutral-600 leading-relaxed">Prompting, Lovable, Claude Opus, Gemini, Google Stitch AI, Supabase, Airtable, Softr, Google Calendar API</p>
+          </div>
+          <div class="p-3 bg-white border border-neutral-200 rounded-md">
+            <span class="font-mono text-neutral-800 block mb-1 text-[11px] font-medium">Programming &amp; Data</span>
+            <p class="text-neutral-600 leading-relaxed">Python (Data Analysis), SQL, MATLAB, C, Pine Script, React (Frontend), GNU Plot</p>
+          </div>
+          <div class="p-3 bg-white border border-neutral-200 rounded-md">
+            <span class="font-mono text-neutral-800 block mb-1 text-[11px] font-medium">Design &amp; Other Tools</span>
+            <p class="text-neutral-600 leading-relaxed">SolidWorks (3D CAD), Ergonomics, Notion, Microsoft Office, Photoshop, Canva</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================================
+         PAGE 4: EXPERIENCE & LEADERSHIP
+         ========================================================================= -->
+    <section id="tab-experience" class="tab-content space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-serif-title font-medium text-neutral-900">Experience &amp; Leadership</h1>
+          <p class="text-sm text-neutral-500 mt-1">Startup, engineering, and community work.</p>
+        </div>
+        <a 
+          href="assets/docs/Ali_Jivraj_Resume.pdf" 
+          download="Ali_Jivraj_Resume.pdf" 
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-neutral-300 text-xs font-medium text-neutral-800 hover:border-neutral-900 transition self-start sm:self-auto"
+        >
+          <i class="fa-regular fa-file-pdf"></i>
+          Download Resume (PDF)
+        </a>
+      </div>
+
+      <!-- Experience Items -->
+      <div class="space-y-6">
+        
+        <!-- Role 1: Tutor Shop -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">Founder &amp; Developer</h2>
+            <span class="text-xs font-mono text-neutral-500">Jun 2025 — Present</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">Tutor Shop • Vaughan, Ontario</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Took Tutor Shop from idea to live product in 3 stages: Carrd &rarr; Softr/Airtable &rarr; custom React &amp; Supabase.</li>
+            <li>Built organization accounts so schools and tutoring groups can run their own private booking page with automatic billing.</li>
+            <li>Added daily word puzzles to give students a reason to come back every day.</li>
+            <li>Grew the marketplace to 20+ independent STEM tutors and 50+ students while keeping service quality consistent.</li>
+            <li>Set up scheduling, session tracking, client billing, and tutor payouts, and check them against each other so the numbers match.</li>
+            <li>Spotted problems like double-booked sessions and uneven service, and changed the process to fix them.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2: ISIJ of Toronto -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">Youth Committee Chair</h2>
+            <span class="text-xs font-mono text-neutral-500">May 2022 — Present</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">ISIJ of Toronto • Vaughan, Ontario</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Plan and run youth events all year, including career fairs, ski trips, and educational seminars, covering schedules, logistics, and budgets.</li>
+            <li>Lead a team of 10+ organizers, keeping event timelines on track, managing risks, and negotiating with vendors.</li>
+            <li>Ran 4 clothing drops from start to finish: design, supplier costs, and getting them to members.</li>
+          </ul>
+        </div>
+
+        <!-- Role 3: STEM Tutor -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">STEM Tutor</h2>
+            <span class="text-xs font-mono text-neutral-500">Sep 2023 — Present</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">Jivraj Tutoring / TutorShop • Vaughan, Ontario</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Teach STEM to students in different grades using step-by-step problem-solving methods.</li>
+            <li>Break hard STEM ideas into simple steps that fit how each student learns, and help them reach their goals.</li>
+            <li>Handle scheduling, lesson planning, and progress tracking independently for all students.</li>
+          </ul>
+        </div>
+
+        <!-- Role 4: Soccer Coach -->
+        <div class="border-b border-neutral-200 pb-6 space-y-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-1">
+            <h2 class="text-base font-medium text-neutral-900">Youth Soccer Coach</h2>
+            <span class="text-xs font-mono text-neutral-500">Feb 2024 — May 2026</span>
+          </div>
+          <p class="text-xs text-neutral-500 font-mono">IFSOE Academy &amp; Playmaker Academy • Vaughan &amp; Richmond Hill, ON</p>
+          <ul class="list-disc list-inside text-xs text-neutral-600 space-y-1.5 pt-1 leading-relaxed">
+            <li>Coached groups of 20 to 40 players aged 9 to 15. Planned each practice and tracked every player's progress on their skills.</li>
+            <li>Ran fast-paced training sessions and game plans. Gave players regular feedback to build teamwork, discipline, and responsibility.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Contact Box -->
+      <div class="bg-neutral-100/70 rounded-md p-5 space-y-2 border border-neutral-200">
+        <h3 class="text-sm font-semibold text-neutral-900">Get in Touch</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">
+          Looking for Industrial Engineering co-op roles, especially ones focused on improving processes. Get in touch:
+        </p>
+        <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
+          <button onclick="copyEmail()" class="px-3 py-1.5 rounded bg-white border border-neutral-300 hover:border-neutral-900 text-neutral-800 transition flex items-center gap-1.5">
+            <i class="fa-regular fa-copy text-neutral-500"></i>
+            <span id="email-label">aliasgharjivraj@gmail.com</span>
+          </button>
+          <a href="https://www.linkedin.com/in/aliasgharjivraj" target="_blank" class="text-neutral-600 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 transition">
+            LinkedIn &rarr;
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="border-t border-neutral-200/80 bg-transparent py-6">
+    <div class="max-w-3xl mx-auto px-5 flex items-center justify-between text-xs text-neutral-400 font-mono">
+      <span>Ali Jivraj © 2026</span>
+      <span>Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <!-- Simple Tab Switching Script -->
+  <script>
+    const tabs = ['overview', 'projects', 'about', 'experience'];
+
+    function switchTab(tabId) {
+      if (!tabs.includes(tabId)) tabId = 'overview';
+
+      tabs.forEach(t => {
+        const content = document.getElementById(`tab-${t}`);
+        const btn = document.getElementById(`nav-${t}`);
+
+        if (t === tabId) {
+          content.classList.add('active');
+          btn.classList.add('text-neutral-900', 'border-emerald-600');
+          btn.classList.remove('text-neutral-500', 'border-transparent');
+        } else {
+          content.classList.remove('active');
+          btn.classList.remove('text-neutral-900', 'border-emerald-600');
+          btn.classList.add('text-neutral-500', 'border-transparent');
+        }
+      });
+
+      if (history.pushState) {
+        history.pushState(null, null, '#' + tabId);
+      } else {
+        window.location.hash = tabId;
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (tabs.includes(hash)) switchTab(hash);
+    });
+
+    // Handle initial page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (tabs.includes(hash)) switchTab(hash);
+    });
+
+    // One-click email copy
+    function copyEmail() {
+      const email = 'aliasgharjivraj@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const label = document.getElementById('email-label');
+        const original = label.innerText;
+        label.innerText = 'Copied to clipboard!';
+        setTimeout(() => {
+          label.innerText = original;
+        }, 1800);
+      });
+    }
+  </script>
+
+</body>
+</html>
