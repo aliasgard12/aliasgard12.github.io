@@ -113,7 +113,7 @@
       <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6 pb-8 border-b border-neutral-200">
         <div class="space-y-4 max-w-lg">
           <h1 class="text-3xl sm:text-4xl font-serif-title font-medium text-neutral-900 leading-tight">
-            Building web apps and systems that make messy processes easier.
+            Building systems that make messy processes easier.
           </h1>
           <p class="text-sm text-neutral-600 leading-relaxed">
             Industrial Engineering student at Toronto Metropolitan University and founder of <a href="https://tutorshop.ca" target="_blank" class="text-neutral-900 underline decoration-neutral-300 hover:decoration-emerald-600 underline-offset-4 font-medium transition">Tutor Shop</a>, a platform that connects 20+ STEM tutors with 50+ students and handles their scheduling and payments automatically.
@@ -191,7 +191,7 @@
         </div>
       </div>
 
-      <!-- Featured Startup: Tutor Shop -->
+      <!-- Featured Startup: Tutor Shop Cover Slot (Exclusively tutorshop-preview.png) -->
       <div class="space-y-4">
         <div class="flex items-baseline justify-between">
           <span class="text-xs font-mono uppercase tracking-wider text-neutral-500">
@@ -202,7 +202,7 @@
           </a>
         </div>
 
-        <!-- Startup Screenshot Slot (Shows the functional application dashboard) -->
+        <!-- Featured Project Cover: tutorshop-preview.png -->
         <div class="media-box rounded-md overflow-hidden group">
           <img 
             src="assets/images/tutorshop-preview.png" 
@@ -213,7 +213,7 @@
           <div class="hidden w-full aspect-[16/9] flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
             <i class="fa-regular fa-image text-2xl mb-1 text-neutral-400"></i>
             <span class="text-xs font-medium text-neutral-600">Tutor Shop Marketplace Preview</span>
-            <span class="text-[11px] font-mono text-neutral-400">assets/images/tutorshop-1.png</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/tutorshop-preview.png</span>
           </div>
         </div>
 
@@ -227,7 +227,7 @@
           </p>
           <div class="pt-1">
             <button onclick="switchTab('projects')" class="text-xs text-emerald-700 hover:text-emerald-800 font-medium inline-flex items-center gap-1 transition">
-              See how it started and what it's become &rarr;
+              See how it started and where it is today &rarr;
             </button>
           </div>
         </div>
@@ -316,7 +316,7 @@
         <p class="text-sm text-neutral-500 mt-1">Startup, side projects, client work, and engineering projects.</p>
       </div>
 
-      <!-- Project 1: Tutor Shop Deep Dive (Interactive Multi-Image Slideshow) -->
+      <!-- Project 1: Tutor Shop Deep Dive (Interactive 4-Image Slideshow: tutorshop-1 to 4) -->
       <article class="space-y-5 pb-12 border-b border-neutral-200">
         <div class="flex flex-wrap items-baseline justify-between gap-2">
           <div>
@@ -333,16 +333,16 @@
           </div>
         </div>
 
-        <!-- Interactive Image Slideshow Container -->
+        <!-- Interactive Image Slideshow Container (4 Slides) -->
         <div class="relative media-box rounded-md overflow-hidden aspect-[16/9] bg-neutral-900 group select-none">
           
           <!-- Slide 1: Logged-in Marketplace & Mahdi Youth Org Portal -->
           <div class="tutorshop-slide w-full h-full relative">
             <img 
               src="assets/images/tutorshop-1.png" 
-              alt="Tutor Shop Marketplace Dashboard & Mahdi Youth Org Portal" 
+              alt="Tutor Shop Student Marketplace & Mahdi Youth Org Portal" 
               class="w-full h-full object-cover object-top"
-              onerror="this.src='assets/images/tutorshop-preview.webp'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
             <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
               <i class="fa-regular fa-image text-3xl mb-1 text-neutral-400"></i>
@@ -351,17 +351,17 @@
             </div>
           </div>
 
-          <!-- Slide 2: Public Landing & Matchmaking -->
+          <!-- Slide 2: Dedicated Booking & Marketplace Search -->
           <div class="tutorshop-slide hidden w-full h-full relative">
             <img 
               src="assets/images/tutorshop-2.png" 
-              alt="Tutor Shop Public Landing Page" 
+              alt="Tutor Shop Booking & Tutor Matchmaking" 
               class="w-full h-full object-cover object-top"
-              onerror="this.src='assets/images/tutorshop-preview.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
             <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
               <i class="fa-regular fa-image text-3xl mb-1 text-neutral-400"></i>
-              <span class="text-sm font-medium">2/4: Public Landing &amp; Tutor Matchmaking</span>
+              <span class="text-sm font-medium">2/4: Tutor Directory &amp; Booking Interface</span>
               <span class="text-xs font-mono text-neutral-400">assets/images/tutorshop-2.png</span>
             </div>
           </div>
@@ -396,10 +396,10 @@
             </div>
           </div>
 
-          <!-- Prev/Next Controls (Visible on hover or mobile) -->
+          <!-- Prev/Next Controls -->
           <button 
             type="button"
-            onclick="changeSlide(-1)" 
+            onclick="changeTutorSlide(-1)" 
             aria-label="Previous slide"
             class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/70 hover:bg-neutral-900 text-white flex items-center justify-center text-xs backdrop-blur-sm transition border border-white/10 shadow-sm"
           >
@@ -408,7 +408,7 @@
           
           <button 
             type="button"
-            onclick="changeSlide(1)" 
+            onclick="changeTutorSlide(1)" 
             aria-label="Next slide"
             class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/70 hover:bg-neutral-900 text-white flex items-center justify-center text-xs backdrop-blur-sm transition border border-white/10 shadow-sm"
           >
@@ -417,16 +417,16 @@
 
           <!-- Bottom Caption & Dots Bar -->
           <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/50 to-transparent p-3 pt-6 flex items-center justify-between text-white text-xs">
-            <span id="slide-caption" class="font-mono text-[11px] text-neutral-300 truncate max-w-[70%]">
+            <span id="tutor-slide-caption" class="font-mono text-[11px] text-neutral-300 truncate max-w-[70%]">
               1/4 • Student Dashboard &amp; Mahdi Youth Org Portal
             </span>
             
             <!-- Indicators -->
             <div class="flex items-center gap-1.5 shrink-0">
-              <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-white transition"></button>
-              <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
-              <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
-              <button onclick="goToSlide(3)" class="slide-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+              <button onclick="goToTutorSlide(0)" class="tutor-dot w-2 h-2 rounded-full bg-white transition"></button>
+              <button onclick="goToTutorSlide(1)" class="tutor-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+              <button onclick="goToTutorSlide(2)" class="tutor-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+              <button onclick="goToTutorSlide(3)" class="tutor-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
             </div>
           </div>
 
@@ -539,8 +539,8 @@
         </div>
       </article>
 
-      <!-- Project 3: The Neurowave Health -->
-      <article class="space-y-4 pb-10 border-b border-neutral-200">
+      <!-- Project 3: The Neurowave Health (Interactive 2-Image Slider) -->
+      <article class="space-y-5 pb-10 border-b border-neutral-200">
         <div class="flex flex-wrap items-baseline justify-between gap-2">
           <div>
             <div class="flex items-center gap-2">
@@ -556,18 +556,71 @@
           </div>
         </div>
 
-        <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
-          <img 
-            src="assets/images/project-neurowave.webp" 
-            alt="The Neurowave Platform Screenshot" 
-            class="w-full h-full object-cover object-top"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
-          <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
-            <i class="fa-regular fa-newspaper text-2xl mb-1 text-neutral-400"></i>
-            <span class="text-xs font-medium text-neutral-600">The Neurowave Health Preview</span>
-            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-neurowave.webp</span>
+        <!-- Neurowave Interactive 2-Image Slider Container -->
+        <div class="relative media-box rounded-md overflow-hidden aspect-[16/9] bg-neutral-900 group select-none">
+          
+          <!-- Slide 1: Public Blog & Featured Story -->
+          <div class="neurowave-slide w-full h-full relative">
+            <img 
+              src="assets/images/neurowave-1.png" 
+              alt="The Neurowave Health Public Homepage & Articles" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.src='assets/images/project-neurowave.webp'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
+            >
+            <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
+              <i class="fa-regular fa-newspaper text-3xl mb-1 text-neutral-400"></i>
+              <span class="text-sm font-medium">1/2: Public Health Blog &amp; Article Reader</span>
+              <span class="text-xs font-mono text-neutral-400">assets/images/neurowave-1.png</span>
+            </div>
           </div>
+
+          <!-- Slide 2: Custom Authoring CMS & Subscribers Pipeline -->
+          <div class="neurowave-slide hidden w-full h-full relative">
+            <img 
+              src="assets/images/neurowave-2.png" 
+              alt="The Neurowave Custom Management CMS" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
+              <i class="fa-solid fa-pen-to-square text-3xl mb-1 text-neutral-400"></i>
+              <span class="text-sm font-medium">2/2: Custom Authoring CMS &amp; Subscriber Pipeline</span>
+              <span class="text-xs font-mono text-neutral-400">assets/images/neurowave-2.png</span>
+            </div>
+          </div>
+
+          <!-- Neurowave Prev/Next Controls -->
+          <button 
+            type="button"
+            onclick="changeNeurowaveSlide(-1)" 
+            aria-label="Previous slide"
+            class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/70 hover:bg-neutral-900 text-white flex items-center justify-center text-xs backdrop-blur-sm transition border border-white/10 shadow-sm"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          
+          <button 
+            type="button"
+            onclick="changeNeurowaveSlide(1)" 
+            aria-label="Next slide"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/70 hover:bg-neutral-900 text-white flex items-center justify-center text-xs backdrop-blur-sm transition border border-white/10 shadow-sm"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Neurowave Bottom Caption & Dots Bar -->
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/50 to-transparent p-3 pt-6 flex items-center justify-between text-white text-xs">
+            <span id="neurowave-slide-caption" class="font-mono text-[11px] text-neutral-300 truncate max-w-[70%]">
+              1/2 • Public Health Blog &amp; Article Reader
+            </span>
+            
+            <!-- Indicators -->
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="goToNeurowaveSlide(0)" class="neuro-dot w-2 h-2 rounded-full bg-white transition"></button>
+              <button onclick="goToNeurowaveSlide(1)" class="neuro-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+            </div>
+          </div>
+
         </div>
 
         <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
@@ -940,33 +993,33 @@
     });
 
     // ==========================================
-    // Interactive Image Slideshow Logic
+    // Tutor Shop Slideshow Logic (4 Slides)
     // ==========================================
-    let currentSlide = 0;
-    const captions = [
+    let currentTutorSlide = 0;
+    const tutorCaptions = [
       '1/4 • Student Dashboard & Mahdi Youth Org Portal',
-      '2/4 • Public Landing & Tutor Matchmaking',
+      '2/4 • Tutor Directory & Booking Interface',
       '3/4 • Daily Word Games & Student Retention',
       '4/4 • Organization CMS & Private Booking Pages'
     ];
 
-    function showSlide(index) {
+    function showTutorSlide(index) {
       const slides = document.querySelectorAll('.tutorshop-slide');
-      const dots = document.querySelectorAll('.slide-dot');
-      const caption = document.getElementById('slide-caption');
+      const dots = document.querySelectorAll('.tutor-dot');
+      const caption = document.getElementById('tutor-slide-caption');
 
       if (!slides.length) return;
 
-      if (index >= slides.length) currentSlide = 0;
-      else if (index < 0) currentSlide = slides.length - 1;
-      else currentSlide = index;
+      if (index >= slides.length) currentTutorSlide = 0;
+      else if (index < 0) currentTutorSlide = slides.length - 1;
+      else currentTutorSlide = index;
 
       slides.forEach((slide, idx) => {
-        slide.classList.toggle('hidden', idx !== currentSlide);
+        slide.classList.toggle('hidden', idx !== currentTutorSlide);
       });
 
       dots.forEach((dot, idx) => {
-        if (idx === currentSlide) {
+        if (idx === currentTutorSlide) {
           dot.classList.remove('bg-white/40');
           dot.classList.add('bg-white');
         } else {
@@ -976,16 +1029,63 @@
       });
 
       if (caption) {
-        caption.innerText = captions[currentSlide] || '';
+        caption.innerText = tutorCaptions[currentTutorSlide] || '';
       }
     }
 
-    function changeSlide(direction) {
-      showSlide(currentSlide + direction);
+    function changeTutorSlide(direction) {
+      showTutorSlide(currentTutorSlide + direction);
     }
 
-    function goToSlide(index) {
-      showSlide(index);
+    function goToTutorSlide(index) {
+      showTutorSlide(index);
+    }
+
+    // ==========================================
+    // The Neurowave Slideshow Logic (2 Slides)
+    // ==========================================
+    let currentNeurowaveSlide = 0;
+    const neurowaveCaptions = [
+      '1/2 • Public Health Blog & Article Reader',
+      '2/2 • Custom Authoring CMS & Subscriber Pipeline'
+    ];
+
+    function showNeurowaveSlide(index) {
+      const slides = document.querySelectorAll('.neurowave-slide');
+      const dots = document.querySelectorAll('.neuro-dot');
+      const caption = document.getElementById('neurowave-slide-caption');
+
+      if (!slides.length) return;
+
+      if (index >= slides.length) currentNeurowaveSlide = 0;
+      else if (index < 0) currentNeurowaveSlide = slides.length - 1;
+      else currentNeurowaveSlide = index;
+
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('hidden', idx !== currentNeurowaveSlide);
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === currentNeurowaveSlide) {
+          dot.classList.remove('bg-white/40');
+          dot.classList.add('bg-white');
+        } else {
+          dot.classList.remove('bg-white');
+          dot.classList.add('bg-white/40');
+        }
+      });
+
+      if (caption) {
+        caption.innerText = neurowaveCaptions[currentNeurowaveSlide] || '';
+      }
+    }
+
+    function changeNeurowaveSlide(direction) {
+      showNeurowaveSlide(currentNeurowaveSlide + direction);
+    }
+
+    function goToNeurowaveSlide(index) {
+      showNeurowaveSlide(index);
     }
 
     // One-click email copy
