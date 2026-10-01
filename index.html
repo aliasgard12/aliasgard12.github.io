@@ -680,19 +680,19 @@
         </div>
       </article>
 
-      <!-- Project 5: Multi-Timeframe Market Indicator -->
+      <!-- Project 5: Structural Market Indicator (Omni-Sniper Engine) -->
       <article class="space-y-4 pb-10 border-b border-neutral-200">
         <div class="flex items-baseline justify-between">
           <div>
-            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Multi-Timeframe Market Indicator</h2>
-            <p class="text-xs text-neutral-500 font-mono mt-0.5">Pine Script • Technical Trading</p>
+            <h2 class="text-xl font-serif-title font-medium text-neutral-900">Structural Market Indicator (Pine Script v6)</h2>
+            <p class="text-xs text-neutral-500 font-mono mt-0.5">Pine Script v6 • Algorithmic Trading • Price Action Logic</p>
           </div>
-          <span class="text-xs font-mono text-neutral-400">May 2025 — Jun 2025</span>
+          <span class="text-xs font-mono text-neutral-400">May 2025 — Present</span>
         </div>
 
         <div class="media-box rounded-md overflow-hidden aspect-[16/9]">
           <img 
-            src="assets/images/project-indicator.png" 
+            src="assets/images/project-indicator.webp" 
             alt="Market Indicator Chart" 
             class="w-full h-full object-cover"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
@@ -700,20 +700,23 @@
           <div class="hidden w-full h-full flex flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
             <i class="fa-solid fa-chart-line text-2xl mb-1 text-neutral-400"></i>
             <span class="text-xs font-medium text-neutral-600">TradingView Indicator Visualization</span>
-            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-indicator.png</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/project-indicator.webp</span>
           </div>
         </div>
 
         <div class="space-y-2 text-sm text-neutral-600 leading-relaxed">
           <p>
-            A trading indicator that combines momentum and trend signals from two timeframes to cut out noise and spot better setups.
+            A technical trading script written in Pine Script v6 that automatically maps key price structures and triggers trade setups based on strict multi-condition confirmation.
           </p>
           <ul class="list-disc list-inside space-y-1 text-xs text-neutral-600">
-            <li>Combined 3-minute MACD signals with a 15-minute RSI filter to sort trades into four types of reversals and continuations. This made signals about 80% more reliable.</li>
-            <li>Added automatic support and resistance lines using pivot points and a minimum-gap filter, so the chart stays clean.</li>
+            <li><strong>Automated Structural Zones:</strong> Uses swing highs and lows with an ATR volatility buffer to plot horizontal demand bases and break-and-retest zones, dynamically updating them across a rolling 5-box memory array to avoid chart clutter.</li>
+            <li><strong>Macro Trendline Engine:</strong> Continuously checks higher swing lows to automatically draw and extend an ascending macro trendline across the chart in real time.</li>
+            <li><strong>Multi-Factor Confluence Triggers:</strong> Separates entries into three distinct setups (base bounces, retests, and trendline rides). Each trade requires price interaction with the zone, a candle close above the 9 EMA, a 1.2x volume surge over the 20-period average, and an anti-spam cooldown counter.</li>
+            <li><strong>Structural Trap Filter:</strong> Added a local ceiling lookback condition requiring candle closes to break above recent candle highs before triggering, preventing false breakouts and trap entries.</li>
           </ul>
         </div>
       </article>
+
 
       <!-- Project 7: Ergonomic System Redesign -->
       <article class="space-y-4 pb-10 border-b border-neutral-200">
