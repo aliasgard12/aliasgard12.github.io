@@ -113,7 +113,7 @@
       <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6 pb-8 border-b border-neutral-200">
         <div class="space-y-4 max-w-lg">
           <h1 class="text-3xl sm:text-4xl font-serif-title font-medium text-neutral-900 leading-tight">
-            Building systems that make messy processes easier.
+            Building web apps and systems that make messy processes easier.
           </h1>
           <p class="text-sm text-neutral-600 leading-relaxed">
             Industrial Engineering student at Toronto Metropolitan University and founder of <a href="https://tutorshop.ca" target="_blank" class="text-neutral-900 underline decoration-neutral-300 hover:decoration-emerald-600 underline-offset-4 font-medium transition">Tutor Shop</a>, a platform that connects 20+ STEM tutors with 50+ students and handles their scheduling and payments automatically.
@@ -202,18 +202,18 @@
           </a>
         </div>
 
-        <!-- Startup Screenshot Slot -->
+        <!-- Startup Screenshot Slot (Shows the functional application dashboard) -->
         <div class="media-box rounded-md overflow-hidden group">
           <img 
-            src="assets/images/tutorshop-preview.webp" 
+            src="assets/images/tutorshop-preview.png" 
             alt="Tutor Shop Platform Preview" 
             class="w-full aspect-[16/9] object-cover object-top"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            onerror="this.src='assets/images/tutorshop-preview.webp'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
           >
           <div class="hidden w-full aspect-[16/9] flex-col items-center justify-center text-neutral-400 p-6 space-y-1">
             <i class="fa-regular fa-image text-2xl mb-1 text-neutral-400"></i>
             <span class="text-xs font-medium text-neutral-600">Tutor Shop Marketplace Preview</span>
-            <span class="text-[11px] font-mono text-neutral-400">assets/images/tutorshop-preview.webp</span>
+            <span class="text-[11px] font-mono text-neutral-400">assets/images/tutorshop-1.png</span>
           </div>
         </div>
 
@@ -227,7 +227,7 @@
           </p>
           <div class="pt-1">
             <button onclick="switchTab('projects')" class="text-xs text-emerald-700 hover:text-emerald-800 font-medium inline-flex items-center gap-1 transition">
-              See how it grew across 3 versions &rarr;
+              See screenshots &amp; how it grew across 3 versions &rarr;
             </button>
           </div>
         </div>
@@ -316,7 +316,7 @@
         <p class="text-sm text-neutral-500 mt-1">Startup, side projects, client work, and engineering projects.</p>
       </div>
 
-      <!-- Project 1: Tutor Shop Deep Dive (3-Phase Evolution) -->
+      <!-- Project 1: Tutor Shop Deep Dive (Interactive Multi-Image Slideshow) -->
       <article class="space-y-5 pb-12 border-b border-neutral-200">
         <div class="flex flex-wrap items-baseline justify-between gap-2">
           <div>
@@ -333,21 +333,103 @@
           </div>
         </div>
 
-        <!-- Video Player / Media Slot -->
-        <div class="media-box rounded-md overflow-hidden aspect-video relative bg-neutral-900">
-          <video 
-            controls 
-            playsinline 
-            preload="metadata"
-            poster="assets/images/tutorshop-preview.webp"
-            class="w-full h-full object-cover"
-          >
-            <source src="assets/videos/tutorshop-demo.mp4" type="video/mp4">
-            <div class="w-full h-full flex flex-col items-center justify-center text-white/70 p-6 text-center space-y-2">
-              <i class="fa-solid fa-play text-2xl text-neutral-300"></i>
-              <p class="text-xs">Place your walkthrough video at <code class="text-neutral-300 font-mono">assets/videos/tutorshop-demo.mp4</code></p>
+        <!-- Interactive Image Slideshow Container -->
+        <div class="relative media-box rounded-md overflow-hidden aspect-[16/9] bg-neutral-900 group select-none">
+          
+          <!-- Slide 1: Logged-in Marketplace & Mahdi Youth Org Portal -->
+          <div class="tutorshop-slide w-full h-full relative">
+            <img 
+              src="assets/images/tutorshop-1.png" 
+              alt="Tutor Shop Marketplace Dashboard & Mahdi Youth Org Portal" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.src='assets/images/tutorshop-preview.webp'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
+            >
+            <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
+              <i class="fa-regular fa-image text-3xl mb-1 text-neutral-400"></i>
+              <span class="text-sm font-medium">1/4: Student Marketplace &amp; Organization Portal</span>
+              <span class="text-xs font-mono text-neutral-400">assets/images/tutorshop-1.png</span>
             </div>
-          </video>
+          </div>
+
+          <!-- Slide 2: Public Landing & Matchmaking -->
+          <div class="tutorshop-slide hidden w-full h-full relative">
+            <img 
+              src="assets/images/tutorshop-2.png" 
+              alt="Tutor Shop Public Landing Page" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.src='assets/images/tutorshop-preview.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};"
+            >
+            <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
+              <i class="fa-regular fa-image text-3xl mb-1 text-neutral-400"></i>
+              <span class="text-sm font-medium">2/4: Public Landing &amp; Tutor Matchmaking</span>
+              <span class="text-xs font-mono text-neutral-400">assets/images/tutorshop-2.png</span>
+            </div>
+          </div>
+
+          <!-- Slide 3: Daily Word Games Engine -->
+          <div class="tutorshop-slide hidden w-full h-full relative">
+            <img 
+              src="assets/images/tutorshop-3.png" 
+              alt="Tutor Shop Daily Word Games Engine" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
+              <i class="fa-solid fa-gamepad text-3xl mb-1 text-neutral-400"></i>
+              <span class="text-sm font-medium">3/4: Daily Word Games &amp; Student Retention</span>
+              <span class="text-xs font-mono text-neutral-400">assets/images/tutorshop-3.png</span>
+            </div>
+          </div>
+
+          <!-- Slide 4: Organization CMS & Booking Workflow -->
+          <div class="tutorshop-slide hidden w-full h-full relative">
+            <img 
+              src="assets/images/tutorshop-4.png" 
+              alt="Tutor Shop Organization Management CMS" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="hidden w-full h-full flex-col items-center justify-center text-white/70 p-6 space-y-1">
+              <i class="fa-solid fa-building-columns text-3xl mb-1 text-neutral-400"></i>
+              <span class="text-sm font-medium">4/4: Organization CMS &amp; Private Booking Pages</span>
+              <span class="text-xs font-mono text-neutral-400">assets/images/tutorshop-4.png</span>
+            </div>
+          </div>
+
+          <!-- Prev/Next Controls (Visible on hover or mobile) -->
+          <button 
+            type="button"
+            onclick="changeSlide(-1)" 
+            aria-label="Previous slide"
+            class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/70 hover:bg-neutral-900 text-white flex items-center justify-center text-xs backdrop-blur-sm transition border border-white/10 shadow-sm"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          
+          <button 
+            type="button"
+            onclick="changeSlide(1)" 
+            aria-label="Next slide"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/70 hover:bg-neutral-900 text-white flex items-center justify-center text-xs backdrop-blur-sm transition border border-white/10 shadow-sm"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Bottom Caption & Dots Bar -->
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/50 to-transparent p-3 pt-6 flex items-center justify-between text-white text-xs">
+            <span id="slide-caption" class="font-mono text-[11px] text-neutral-300 truncate max-w-[70%]">
+              1/4 • Student Dashboard &amp; Mahdi Youth Org Portal
+            </span>
+            
+            <!-- Indicators -->
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-white transition"></button>
+              <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+              <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+              <button onclick="goToSlide(3)" class="slide-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition"></button>
+            </div>
+          </div>
+
         </div>
 
         <div class="space-y-3 text-sm text-neutral-600 leading-relaxed">
@@ -814,7 +896,7 @@
     </div>
   </footer>
 
-  <!-- Simple Tab Switching Script -->
+  <!-- Scripts -->
   <script>
     const tabs = ['overview', 'projects', 'about', 'experience'];
 
@@ -856,6 +938,55 @@
       const hash = window.location.hash.replace('#', '');
       if (tabs.includes(hash)) switchTab(hash);
     });
+
+    // ==========================================
+    // Interactive Image Slideshow Logic
+    // ==========================================
+    let currentSlide = 0;
+    const captions = [
+      '1/4 • Student Dashboard & Mahdi Youth Org Portal',
+      '2/4 • Public Landing & Tutor Matchmaking',
+      '3/4 • Daily Word Games & Student Retention',
+      '4/4 • Organization CMS & Private Booking Pages'
+    ];
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.tutorshop-slide');
+      const dots = document.querySelectorAll('.slide-dot');
+      const caption = document.getElementById('slide-caption');
+
+      if (!slides.length) return;
+
+      if (index >= slides.length) currentSlide = 0;
+      else if (index < 0) currentSlide = slides.length - 1;
+      else currentSlide = index;
+
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('hidden', idx !== currentSlide);
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === currentSlide) {
+          dot.classList.remove('bg-white/40');
+          dot.classList.add('bg-white');
+        } else {
+          dot.classList.remove('bg-white');
+          dot.classList.add('bg-white/40');
+        }
+      });
+
+      if (caption) {
+        caption.innerText = captions[currentSlide] || '';
+      }
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
 
     // One-click email copy
     function copyEmail() {
